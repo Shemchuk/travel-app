@@ -1,0 +1,96 @@
+//@mixin max-width($width) {
+//  @media screen and (max-width: $width) {
+//    @content;
+//  }
+//}
+
+//.country-card-wrapper {
+//  flex: 1;
+//  flex-basis: 25%;
+//  display: flex;
+//  justify-content: center;
+//}
+
+a {
+  text-decoration: none;
+}
+
+.country-card {
+  flex: 1;
+  flex-basis: 25%;
+
+  width: 300px;
+  height: 400px;
+  background-image: url('../img/france.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+
+  .title_cart{
+    margin-left: 30px;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 48px;
+    color: #ffffff;
+  }
+
+  .sub-title_cart{
+    margin-left: 30px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    color: #ffffff;
+  }
+
+  .more{
+    display: none;
+    width: 332px;
+    height: 409px;
+    font-size: 18px;
+    color: #333333;
+    text-align: center;
+    line-height: 409px;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: relative;
+    top: 200px;
+
+  }
+
+  &:hover{
+    .title_cart,
+    .sub-title_cart{
+      display: none;
+    }
+
+    .more{
+      display: block;
+      top: 0;
+
+    }
+  }
+}
+
+//@include max-width(992px) {
+//  .country-card-wrapper {
+//    flex-basis: 33%;
+//  }
+//}
+//
+//@include max-width(640px) {
+//  .country-card-wrapper {
+//    flex-basis: 50%;
+//  }
+//}
+//
+//@include max-width(320px) {
+//  .country-card-wrapper {
+//    flex-basis: 80%;
+//  }
+//}

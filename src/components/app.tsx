@@ -1,3 +1,5 @@
+import '../css/app.scss';
+
 import React from 'react';
 import {
   HashRouter as Router,
@@ -7,6 +9,8 @@ import {
 import Header from './header';
 import MainPage from './main-page';
 import CountryPage from './country-page';
+import AboutPage from './about';
+import LoginPage from './login';
 
 const App: React.FC<any> = () => (
   <>
@@ -15,6 +19,12 @@ const App: React.FC<any> = () => (
       <Switch>
         <Route exact path="/">
           <MainPage />
+        </Route>
+        <Route path="/about">
+          <AboutPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
         <Route path="/country/:id">
           <CountryPage />

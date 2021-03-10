@@ -1,0 +1,50 @@
+@import 'base.css';
+@import 'normalize.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer{
+  flex-shrink: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #333333;
+  color: #8d8d8d;
+  display: flex;
+  align-self: center;
+  font-family: 'Bebas Neue', sans-serif;
+
+  .footer_wrapper{
+    margin: 0 auto;
+    width: 98%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .footer_logo{
+      width: 72px;
+      height: 25px;
+      background-image: url('../img/logo.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .footer_social{
+      width: 25px;
+      height: 25px;
+      background-image: url('../img/github.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+}

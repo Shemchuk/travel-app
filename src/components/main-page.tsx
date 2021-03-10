@@ -1,11 +1,26 @@
+import '../css/main-page.scss';
+
 import React from 'react';
-import { Link, HashRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
+import CountryCard from './country-card';
 
 const MainPage: React.FC = () => (
-  <div>
+  <div className="countries-wrapper">
     <Router>
-      <Link to="/country/1">Country 1</Link>
-      <Link to="/country/2">Country 2</Link>
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
+      <CountryCard />
     </Router>
   </div>
 );

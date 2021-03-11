@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+.country_page_wrapper {
+  margin: 0 auto;
+  width: 993px;
+  height: 1340px;
+  background-color: rgba(51, 51, 51, 0.4);
+  box-sizing: border-box; }
+  .country_page_wrapper .country_page_informer {
+    margin: 0;
+    width: 100%;
+    height: 120px;
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .country_page_wrapper .country_page_informer .country_page_weather {
+      width: 25%;
+      height: 83px; }
+    .country_page_wrapper .country_page_informer .country_page_title {
+      width: 30%;
+      height: 83px; }
+    .country_page_wrapper .country_page_informer .country_page_clock {
+      width: 45%;
+      height: 83px; }
+    .country_page_wrapper .country_page_informer .country_page_weather,
+    .country_page_wrapper .country_page_informer .country_page_title {
+      border-right: 2px solid #ffffff; }
+    .country_page_wrapper .country_page_informer .country_page_title {
+      display: flex;
+      flex-direction: column; }
+      .country_page_wrapper .country_page_informer .country_page_title .country_page_name_title {
+        display: block;
+        margin: -19px 0 0 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 64px;
+        color: #ffffff; }
+      .country_page_wrapper .country_page_informer .country_page_title .country_page_name_subtitle {
+        display: block;
+        margin: -15px 0 0 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 48px;
+        color: #ffffff; }
+    .country_page_wrapper .country_page_informer .country_page_weather {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      align-items: center; }
+      .country_page_wrapper .country_page_informer .country_page_weather .weather {
+        display: block;
+        height: 83px;
+        margin: 16px 0 0 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 58px;
+        color: #ffffff; }
+        .country_page_wrapper .country_page_informer .country_page_weather .weather .weather_sup {
+          font-size: 24px;
+          position: relative;
+          top: -19px; }
+      .country_page_wrapper .country_page_informer .country_page_weather .weather_img {
+        display: block;
+        height: 83px;
+        margin: 9px 0 0 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 48px;
+        color: #ffffff; }
+    .country_page_wrapper .country_page_informer .country_page_clock {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center; }
+      .country_page_wrapper .country_page_informer .country_page_clock .clock {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+        .country_page_wrapper .country_page_informer .country_page_clock .clock .page_clock {
+          margin-left: 15px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 42px;
+          color: #ffffff; }
+        .country_page_wrapper .country_page_informer .country_page_clock .clock .page_calendar {
+          margin-left: 15px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 21px;
+          color: #ffffff; }
+      .country_page_wrapper .country_page_informer .country_page_clock .page_currency {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; }
+        .country_page_wrapper .country_page_informer .country_page_clock .page_currency .currency {
+          margin-right: 15px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 27px;
+          color: #ffffff; }
+  .country_page_wrapper .gallery {
+    width: 100%;
+    height: 473px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between; }
+    .country_page_wrapper .gallery .left_button {
+      width: 130px;
+      height: 473px;
+      background-color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .country_page_wrapper .gallery .left_button .left_button_tap {
+        margin: 0px -51px 0 0;
+        width: 100px;
+        height: 100px;
+        transform: rotate(45deg);
+        border: 2px solid transparent; }
+        .country_page_wrapper .gallery .left_button .left_button_tap .left_top_hr {
+          width: 100%;
+          height: 2px;
+          margin: 0 0 0 0;
+          background-color: #ffffff;
+          transform: rotate(90deg);
+          position: relative;
+          top: 50px;
+          left: -50px; }
+        .country_page_wrapper .gallery .left_button .left_button_tap .left_bottom_hr {
+          width: 100%;
+          height: 2px;
+          margin: 0 0 0 0;
+          background-color: #ffffff;
+          transform: rotate(0deg);
+          position: relative;
+          top: 97px;
+          left: 0; }
+        .country_page_wrapper .gallery .left_button .left_button_tap:hover {
+          cursor: pointer; }
+          .country_page_wrapper .gallery .left_button .left_button_tap:hover .left_top_hr,
+          .country_page_wrapper .gallery .left_button .left_button_tap:hover .left_bottom_hr {
+            transition: all 0.2s;
+            cursor: pointer;
+            box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.9); }
+    .country_page_wrapper .gallery .body_gallery {
+      width: 733px;
+      height: 473px;
+      background-color: #ffffff; }
+    .country_page_wrapper .gallery .right_button {
+      width: 130px;
+      height: 473px;
+      background-color: #333333;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .country_page_wrapper .gallery .right_button .right_button_tap {
+        margin: 0 0 0 -51px;
+        width: 100px;
+        height: 100px;
+        transform: rotate(-140deg);
+        border: 2px solid transparent; }
+        .country_page_wrapper .gallery .right_button .right_button_tap .right_top_hr {
+          width: 100%;
+          height: 2px;
+          margin: 0 0 0 0;
+          background-color: #ffffff;
+          transform: rotate(90deg);
+          position: relative;
+          top: 50px;
+          left: -50px; }
+        .country_page_wrapper .gallery .right_button .right_button_tap .right_bottom_hr {
+          width: 100%;
+          height: 2px;
+          margin: 0 0 0 0;
+          background-color: #ffffff;
+          transform: rotate(0deg);
+          position: relative;
+          top: 97px;
+          left: 0; }
+        .country_page_wrapper .gallery .right_button .right_button_tap:hover {
+          cursor: pointer; }
+          .country_page_wrapper .gallery .right_button .right_button_tap:hover .right_top_hr,
+          .country_page_wrapper .gallery .right_button .right_button_tap:hover .right_bottom_hr {
+            transition: all 0.2s;
+            cursor: pointer;
+            box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.9); }
+  .country_page_wrapper .country_page_map {
+    margin: 0 auto;
+    width: 100%;
+    height: 250px; }
+  .country_page_wrapper .country_page_video {
+    width: 100%;
+    height: 600px; }
+
+/*# sourceMappingURL=country_page_style.css.map */

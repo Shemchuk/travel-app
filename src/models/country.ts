@@ -1,4 +1,4 @@
-// import Lang from './lang';
+import Lang from './lang';
 import IPlace from './place';
 import IVideo from './video';
 
@@ -12,6 +12,7 @@ export default interface ICountry {
   description: string;
   places: IPlace[];
   videos: IVideo[];
-  lang: string; // EN, RU, BY
-  // lang: Lang;
+  // lang: string; // EN, RU, BY
+  lang: Lang;
+  ISOCode: string;
 }

@@ -1,11 +1,12 @@
 import IState from './state';
-import Lang from '../models/lang';
+// import Lang from '../models/lang';
 import { ActionTypes, LOAD_COUNTRY, SET_LANGUAGE } from './actions';
 
 const initialState: IState = {
   contryList: [],
   selectedCountry: undefined,
-  language: Lang.RU,
+  // language: Lang.RU,
+  language: 'RU',
 };
 
 export default function travelReducer(

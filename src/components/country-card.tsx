@@ -10,9 +10,7 @@ const CountryCard: React.FC<any> = () => (
       <div className="country-card">
         <span className="title_cart">Franse</span>
         <span className="sub-title_cart">Paris</span>
-        <span className="more">
-          start your journey...
-        </span>
+        <span className="more">start your journey...</span>
       </div>
     </Link>
   </Router>

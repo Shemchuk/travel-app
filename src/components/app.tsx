@@ -1,11 +1,7 @@
 import '../css/app.scss';
 
 import React from 'react';
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './header';
 import MainPage from './main-page';
 import CountryPage from './country-page';

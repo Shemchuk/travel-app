@@ -1,5 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+pretty-quick --staged
 npm run code:check
-# npm run test
+npm run test:updateSnapshot
+npm run test
+npm run build:prod

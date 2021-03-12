@@ -1,7 +1,3 @@
-enum Lang {
-  RU,
-  EN,
-  FR,
-}
+type Lang = 'RU' | 'EN' | 'BY';
 
 export default Lang;

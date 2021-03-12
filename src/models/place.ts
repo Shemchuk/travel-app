@@ -3,5 +3,4 @@ export default interface IPlace {
   name: string;
   description: string;
   photo: string;
-  gps: { x: number, y: number };
 }

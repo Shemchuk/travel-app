@@ -1,26 +1,26 @@
 import IState from './state';
-// import Lang from '../models/lang';
-import { ActionTypes, LOAD_COUNTRY, SET_LANGUAGE } from './actions';
+import countriesList from '../tests/mocks/countriesList';
+import { ActionTypes, SET_CURRENT_COUNTRY } from './actions';
+
+const enCountries = countriesList.filter((country) => country.lang === 'RU');
 
 const initialState: IState = {
-  contryList: [],
+  countryList: enCountries,
   selectedCountry: undefined,
-  // language: Lang.RU,
   language: 'RU',
+  weather: {
+    temperature: 32,
+  },
 };
 
-export default function travelReducer(
-  state = initialState,
-  action: ActionTypes,
-): IState {
-  let LOAD_COUNTRY_LIST;
+export default function travelReducer(state = initialState, action: ActionTypes): IState {
   switch (action.type) {
-    case SET_LANGUAGE:
-      return state;
-    case LOAD_COUNTRY:
-      return state;
-    case LOAD_COUNTRY_LIST:
-      return state;
+    case SET_CURRENT_COUNTRY:
+      return { ...state, selectedCountry: action.payload };
+    // case SELECT_COUNTRY:
+    //   return state;
+    // case LOAD_COUNTRY_LIST:
+    //   return state;
     default:
       return state;
   }

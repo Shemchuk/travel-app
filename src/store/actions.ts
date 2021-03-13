@@ -1,43 +1,35 @@
-import Lang from '../models/lang';
+import IState from './state';
+import ICountry from '../models/country';
 
-export const SET_LANGUAGE = 'SET_LANGUAGE';
-export const LOAD_COUNTRY = 'LOAD_COUNTRY';
-export const LOAD_COUNTRIES_LIST = 'LOAD_COUNTRIES_LIST';
+export const SET_CURRENT_COUNTRY = 'SET_CURRENT_COUNTRY';
 
-export function setLanguage(lang: Lang): SetLanguage {
+export function setCurrentCountry(country?: ICountry | undefined): SetCurrentCountry {
   return {
-    type: SET_LANGUAGE,
-    payload: lang,
+    type: SET_CURRENT_COUNTRY,
+    payload: country,
   };
 }
 
-export function loadCountriesList(lang: Lang): LoadCountriesList {
-  return {
-    type: LOAD_COUNTRIES_LIST,
-    payload: lang,
-  };
+interface SetCurrentCountry {
+  type: typeof SET_CURRENT_COUNTRY;
+  payload: ICountry | undefined;
 }
 
-export function loadCountry(id: number, lang: Lang): LoadCountry {
-  return {
-    type: LOAD_COUNTRY,
-    payload: { id, lang },
-  };
-}
+export type ActionTypes = SetCurrentCountry;
 
-interface SetLanguage {
-  type: typeof SET_LANGUAGE;
-  payload: Lang;
-}
+export const appActions = {
+  loadCountry: (id: number) => (dispatch: (action: any) => void, getState: () => IState) => {
+    const { countryList, selectedCountry } = getState();
+    if (id === selectedCountry?.id) {
+      return;
+    }
+    dispatch(setCurrentCountry());
+    setTimeout(() => {
+      const newCountry = countryList.find((country) => country.id === id);
 
-interface LoadCountriesList {
-  type: typeof LOAD_COUNTRIES_LIST,
-  payload: Lang
-}
+      // console.log('=======> load country:', id, language, newCountry);
 
-interface LoadCountry {
-  type: typeof LOAD_COUNTRY;
-  payload: { id: number, lang: Lang };
-}
-
-export type ActionTypes = LoadCountry | LoadCountriesList | SetLanguage;
+      dispatch(setCurrentCountry(newCountry));
+    }, 100);
+  },
+};

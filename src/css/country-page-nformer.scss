@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+.country_page_informer {
+  margin: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .country_page_weather {
+    width: 25%;
+    height: 83px;
+  }
+
+  .country_page_title {
+    width: 30%;
+    height: 83px;
+  }
+
+  .country_page_clock {
+    width: 45%;
+    height: 83px;
+  }
+
+  .country_page_weather,
+  .country_page_title {
+    border-right: 2px solid #ffffff;
+
+  }
+
+  .country_page_title {
+    display: flex;
+    flex-direction: column;
+
+    .country_page_name_title {
+      display: block;
+      margin: -19px 0 0 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 64px;
+      color: #ffffff;
+    }
+
+    .country_page_name_subtitle {
+      display: block;
+      margin: -15px 0 0 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 48px;
+      color: #ffffff;
+    }
+  }
+
+  .country_page_weather {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+
+    .weather {
+      display: block;
+      height: 83px;
+      margin: 16px 0 0 10px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 58px;
+      color: #ffffff;
+
+      .weather_sup {
+        font-size: 24px;
+        position: relative;
+        top: -19px;
+      }
+    }
+
+    .weather_img {
+      display: block;
+      width: 64px;
+      height: 80px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 48px;
+      color: #ffffff;
+    }
+  }
+
+  .country_page_clock {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    .clock {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .page_clock {
+        margin-left: 15px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 42px;
+        color: #ffffff;
+
+
+      }
+
+      .page_calendar {
+        margin-left: 15px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 21px;
+        color: #ffffff;
+      }
+    }
+
+    .page_currency {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .currency {
+        margin-right: 15px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 27px;
+        color: #ffffff;
+
+      }
+
+    }
+
+
+  }
+}
+

@@ -8,7 +8,7 @@ const CountryCard: React.FC<any> = () => (
   <Router>
     <Link to="/country/1">
       <div className="country-card">
-        <span className="title_cart">Franse</span>
+        <span className="title_cart">France</span>
         <span className="sub-title_cart">Paris</span>
         <span className="more">start your journey...</span>
       </div>

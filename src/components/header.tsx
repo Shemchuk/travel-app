@@ -9,7 +9,6 @@ const Header: React.FC<any> = () => (
   <header className="header">
     <Router>
       <div className="header_wrapper">
-
         <div className="header_logo">
           <Link to="/">travel the world</Link>
         </div>
@@ -17,9 +16,15 @@ const Header: React.FC<any> = () => (
         <div className="header_menu">
           <nav className="header_nav">
             <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">about</Link></li>
-              <li><Link to="/login">login</Link></li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">about</Link>
+              </li>
+              <li>
+                <Link to="/login">login</Link>
+              </li>
               <li>
                 <LanguageSelect />
               </li>
@@ -27,7 +32,6 @@ const Header: React.FC<any> = () => (
           </nav>
 
           <Search />
-
         </div>
       </div>
     </Router>

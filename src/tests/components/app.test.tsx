@@ -5,9 +5,7 @@ import App from '../../components/app';
 
 describe('App', () => {
   test('renders correctly', () => {
-    const app = renderer
-      .create(<App />)
-      .toJSON();
+    const app = renderer.create(<App />).toJSON();
     expect(app).toMatchSnapshot();
   });
 });

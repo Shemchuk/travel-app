@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { format } from 'date-fns'
 
-type optionsType = {
+type OptionsType = {
   timeZone: string
   hour12: boolean
 }
@@ -10,10 +10,14 @@ const Clock = () => {
   const [date, setDate] = useState(0);
 
   const today: any = new Date();
-  const options: optionsType = {
+  const options: OptionsType = {
     timeZone: 'Europe/Minsk',
     hour12: false 
   };
+
+  const tick = () => {
+    setDate(today.toLocaleString('en-US', options));
+  }
 
   useEffect(() => {
     const timerID = setInterval( () => tick(), 1000 );
@@ -22,10 +26,6 @@ const Clock = () => {
       clearInterval(timerID);
     };
   });
-
-  const tick = () => {
-    setDate(today.toLocaleString('en-US', options));
-  }
 
   return (
     <>

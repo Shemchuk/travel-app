@@ -1,19 +1,41 @@
 import '../../css/country-page-nformer.scss';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import IState from '../../store/state';
 import ICountry from '../../models/country';
-import { IWeather } from '../../models/weather';
+import Clock from './Clock';
+import Currency from './Currency';
 
 interface ICountryPageInformerProps {
   country: ICountry | undefined;
-  weather: IWeather;
 }
 
 const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
-  const { country, weather } = props;
+  const { country } = props;
+
+  const [weather, setWheater] = useState(null);
+  const [descWeater, setDescWeater] = useState(null);
+  const [temp, setTemp] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${'Minsk'}&lang=en&appid=a4c1e23269d7d59e28b2b893ae243de9&units=metric`;
+      try {
+        const res = await axios.get(url);
+        const { data } = res;
+
+        setWheater(data.weather[0].id)
+        setDescWeater(data.weather[0].description)
+        setTemp(data.main.temp.toFixed());
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+    fetchData()
+  }, [])
 
   if (country) {
     return (
@@ -25,21 +47,18 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
           </div>
           <div className="country_page_weather">
             <span className="weather">
-              {weather.temperature}
-              <sup className="weather_sup">O</sup>C
+              {temp}°C
             </span>
-            <img className="weather_img" src="#" alt="" />
+            {/* <img className="weather_img" src="#" alt="" /> */}
+            <div className={`weather-icon owf owf-${weather}`} />
+            <div className="weather-description">{descWeater}</div>
           </div>
-
           <div className="country_page_clock">
             <div className="clock">
-              <div className="page_clock">18 : 53 : 55</div>
-              <div className="page_calendar">Wednesday, March 10</div>
+              <Clock />
             </div>
             <div className="page_currency">
-              <div className="currency">₣ 100.00</div>
-              <div className="currency">€ 100.00</div>
-              <div className="currency">$ 100.00</div>
+              <Currency />
             </div>
           </div>
         </div>

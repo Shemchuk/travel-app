@@ -1,4 +1,5 @@
 import '../css/app.scss';
+import '../css/owfont-regular.scss'
 
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';

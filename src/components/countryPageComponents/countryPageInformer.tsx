@@ -49,9 +49,10 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
             <span className="weather">
               {temp}°C
             </span>
-            {/* <img className="weather_img" src="#" alt="" /> */}
-            <div className={`weather-icon owf owf-${weather}`} />
-            <div className="weather-description">{descWeater}</div>
+            <div className="weater-info">
+              <div className={`weather-icon owf owf-${weather}`} />
+              <div className="weather-description">{descWeater}</div>
+            </div>
           </div>
           <div className="country_page_clock">
             <div className="clock">

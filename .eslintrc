@@ -1,18 +1,15 @@
 {
-	"env": {
-		"browser": true,
-		"jest": true
-	},
-	"plugins": ["simple-import-sort"],
-	"rules": {
-//		"simple-import-sort/imports": "error",
-//		"comma-dangle": ["error", "never"],
-//		"object-curly-spacing": ["error", "never"]
-	},
-	"parserOptions": {
-		"project": "./tsconfig.json"
-	},
-	"extends": [
-		"airbnb-typescript", "airbnb/hooks"
-	]
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "object-curly-newline": "off",
+    "jsx-a11y/alt-text": "off"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": ["airbnb-typescript", "airbnb/hooks", "prettier"]
 }

@@ -1,11 +1,17 @@
 import '../css/header.scss';
 
 import React from 'react';
-import { Link, HashRouter as Router } from 'react-router-dom';
+import { Link, HashRouter as Router, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
 import LanguageSelect from './language-select';
 import Search from './search';
+import IState from '../store/state';
 
-const Header: React.FC<any> = () => (
+const Header: React.FC<any> = (props: any) => {
+  const { lang } = props;
+  console.log(lang);
+  return (
   <header className="header">
     <Router>
       <div className="header_wrapper">
@@ -17,13 +23,13 @@ const Header: React.FC<any> = () => (
           <nav className="header_nav">
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to={`/${lang}`}>Home</Link>
               </li>
               <li>
-                <Link to="/about">about</Link>
+                <Link to={`/${lang}/about`}>about</Link>
               </li>
               <li>
-                <Link to="/login">login</Link>
+                <Link to={`/${lang}/login`}>login</Link>
               </li>
               <li>
                 <LanguageSelect />
@@ -36,6 +42,12 @@ const Header: React.FC<any> = () => (
       </div>
     </Router>
   </header>
-);
+  );
+}
 
-export default Header;
+const mapStateToProps = (state: IState) => ({
+  lang: state.language,
+});
+
+export default withRouter(connect(mapStateToProps)(Header));
+

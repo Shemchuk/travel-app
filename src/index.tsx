@@ -2,15 +2,17 @@ import './css/main.scss';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+// import { HashRouter as Router , Route} from 'react-router-dom';
+
 
 import { Provider } from 'react-redux';
-import App from './components/app';
+import LocalizedApp from './components/app';
 
 import store from './store/store';
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <LocalizedApp />
   </Provider>,
   document.getElementById('app'),
 );

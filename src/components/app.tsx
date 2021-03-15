@@ -1,33 +1,65 @@
 import '../css/app.scss';
 
-import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Route, Switch, withRouter, useParams, useLocation, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from './header';
 import MainPage from './main-page';
 import CountryPage from './country-page';
 import AboutPage from './about';
 import LoginPage from './login';
+import { appActions } from '../store/actions';
+import IState from '../store/state';
 
-const App: React.FC<any> = () => (
-  <>
+const App: React.FC<any> = (props: any) => {
+  const { language }: any = useParams();
+  const location = useLocation();
+  const { 
+      lang, 
+      // match: { params },
+    } = props;
+
+  
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log(`lang = ${lang}, params = ` , language,'; location = ', location);
+  });
+
+  return (
+    <>
+        <Header />
+        <Switch>
+          <Redirect from="/" to="/RU"/>
+          <Route path="/:language/country/:id">
+            <CountryPage />
+          </Route>
+          <Route path="/:language/about">
+            <AboutPage />
+          </Route>
+          <Route path="login">
+            <LoginPage />
+          </Route>
+          <Route path="">
+            <MainPage />
+          </Route>
+        </Switch>
+    </>
+  );
+};
+
+const LocalizedApp : React.FC<any> =  () => (
     <Router>
-      <Header />
-      <Switch>
-        <Route exact path="/">
-          <MainPage />
-        </Route>
-        <Route path="/about">
-          <AboutPage />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/country/:id">
-          <CountryPage />
-        </Route>
-      </Switch>
+      <Route path="/:language">
+         <App />
+      </Route>
     </Router>
-  </>
-);
+  );
 
-export default App;
+
+// const mapDispatchToProps = appActions;
+// const mapStateToProps = (state: IState) => ({
+//   lang: state.language,
+// });
+
+// withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default LocalizedApp;

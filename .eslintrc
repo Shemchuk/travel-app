@@ -6,7 +6,8 @@
   "plugins": ["simple-import-sort"],
   "rules": {
     "object-curly-newline": "off",
-    "jsx-a11y/alt-text": "off"
+    "jsx-a11y/alt-text": "off",
+    "no-console": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json"

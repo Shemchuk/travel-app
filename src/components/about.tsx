@@ -1,5 +1,16 @@
 import React from 'react';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
-const AboutPage: React.FC = () => <div>About page</div>;
+import IState from '../store/state';
 
-export default AboutPage;
+const AboutPage: React.FC<any> = (props: any) => {
+  const { language } = props;
+
+  return <div>About page [{language}]</div>;
+};
+
+const mapStateToProps = (state: IState) => ({
+  language: state.language,
+});
+export default withRouter(connect(mapStateToProps)(AboutPage));

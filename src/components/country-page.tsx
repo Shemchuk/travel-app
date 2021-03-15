@@ -13,24 +13,27 @@ import CountryPageGallery from './countryPageComponents/countryPageGallery';
 import CountryPageMap from './countryPageComponents/countryPageMap';
 import CountryPageVideo from './countryPageComponents/countryPageVideo';
 import CountryPageDescription from './countryPageComponents/CountryPageDescription';
+import Lang from '../models/lang';
 
 interface ICountryPageProps extends RouteComponentProps<any> {
   country: ICountry | undefined;
-  loadCountry: (id: number) => void;
+  lang: Lang;
+  loadCountry: (id: number, lang: Lang) => void;
 }
 
 const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
   const {
     country,
     loadCountry,
+    lang,
     match: {
       params: { id },
     },
   } = props;
 
   useEffect(() => {
-    loadCountry(Number(id));
-  }, [loadCountry, id]);
+    loadCountry(Number(id), lang);
+  }, [loadCountry, id, lang]);
 
   if (country) {
     return (
@@ -52,5 +55,6 @@ const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
 const mapDispatchToProps = appActions;
 const mapStateToProps = (state: IState) => ({
   country: state.selectedCountry,
+  lang: state.language,
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CountryPage));

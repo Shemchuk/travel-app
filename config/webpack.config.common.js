@@ -52,10 +52,6 @@ module.exports = {
       },
     ],
   },
-  devServer: {
-    compress: true,
-    open: true,
-  },
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {

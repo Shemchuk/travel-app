@@ -1,65 +1,66 @@
 import '../css/app.scss';
 
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Route, Switch, withRouter, useParams, useLocation, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, withRouter, useParams, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './header';
 import MainPage from './main-page';
 import CountryPage from './country-page';
 import AboutPage from './about';
 import LoginPage from './login';
-import { appActions } from '../store/actions';
 import IState from '../store/state';
+import { appActions } from '../store/actions';
 
-const App: React.FC<any> = (props: any) => {
-  const { language }: any = useParams();
-  const location = useLocation();
-  const { 
-      lang, 
-      // match: { params },
-    } = props;
+const AppComponent: React.FC<any> = (props: any) => {
+  const { language, setLang } = props;
+  const { lang }: any = useParams();
 
-  
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(`lang = ${lang}, params = ` , language,'; location = ', location);
-  });
+    // console.log('=======> [App] useEffect: state.language=', language);
+    // console.log('====> [App] props.match.params:', props.match.params);
+    // console.log('====> [App] lang from params:', lang);
+    // console.log('====> [App] lang from state:', language);
+    if (language !== lang) {
+      setLang(lang);
+    }
+  }, [setLang, lang, language]);
 
   return (
     <>
-        <Header />
-        <Switch>
-          <Redirect from="/" to="/RU"/>
-          <Route path="/:language/country/:id">
-            <CountryPage />
-          </Route>
-          <Route path="/:language/about">
-            <AboutPage />
-          </Route>
-          <Route path="login">
-            <LoginPage />
-          </Route>
-          <Route path="">
-            <MainPage />
-          </Route>
-        </Switch>
+      <Header />
+      <Switch>
+        <Route path={`/${language}/about`}>
+          <AboutPage />
+        </Route>
+        <Route path={`/${language}/login`}>
+          <LoginPage />
+        </Route>
+        <Route path={`/${language}/country/:id`}>
+          <CountryPage />
+        </Route>
+        <Route path={`/${language}`}>
+          <MainPage />
+        </Route>
+      </Switch>
     </>
   );
 };
 
-const LocalizedApp : React.FC<any> =  () => (
-    <Router>
-      <Route path="/:language">
-         <App />
+const mapDispatchToProps = appActions;
+const mapStateToProps = (state: IState) => ({
+  language: state.language,
+});
+const App = withRouter(connect(mapStateToProps, mapDispatchToProps)(AppComponent));
+
+const LocalizedApp: React.FC<any> = () => (
+  <Router>
+    <Switch>
+      <Route path="/:lang">
+        <App />
       </Route>
-    </Router>
-  );
+      <Redirect to="/ru" />
+    </Switch>
+  </Router>
+);
 
-
-// const mapDispatchToProps = appActions;
-// const mapStateToProps = (state: IState) => ({
-//   lang: state.language,
-// });
-
-// withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 export default LocalizedApp;

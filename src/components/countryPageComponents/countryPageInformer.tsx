@@ -15,6 +15,8 @@ interface ICountryPageInformerProps {
 
 const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
   const { country } = props;
+  // @ts-ignore
+  const { capital } = country
 
   const [weather, setWheater] = useState(null);
   const [descWeater, setDescWeater] = useState(null);
@@ -22,7 +24,7 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${'Minsk'}&lang=en&appid=a4c1e23269d7d59e28b2b893ae243de9&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${capital}&lang=en&appid=a4c1e23269d7d59e28b2b893ae243de9&units=metric`;
       try {
         const res = await axios.get(url);
         const { data } = res;
@@ -35,9 +37,9 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
       }
     }
     fetchData()
-  }, [])
+  }, [capital])
 
-  if (country) {
+  if (country) {    
     return (
       <>
         <div className="country_page_informer">
@@ -70,7 +72,10 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 };
 
 const mapStateToProps = (state: IState) => ({
-  country: state.selectedCountry,
-  weather: state.weather,
+    country: state.selectedCountry,
+    weather: state.weather
 });
+
 export default connect(mapStateToProps)(CountryPageInformer);
+
+

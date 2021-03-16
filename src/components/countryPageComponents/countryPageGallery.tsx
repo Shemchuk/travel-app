@@ -3,8 +3,12 @@ import React from 'react';
 import IPlace from '../../models/place';
 
 interface ICountryPageGalleryProps {
-  places: IPlace[];
+  places?: IPlace[];
 }
+
+const defaultProps: ICountryPageGalleryProps = {
+  places: [],
+};
 
 const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryPageGalleryProps) => {
   const { places } = props;
@@ -19,7 +23,7 @@ const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryP
           </div>
         </div>
         <div className="body_gallery">
-          {places.map((p) => (
+          {places?.map((p) => (
             <div key={p.id}>{p.name}</div>
           ))}
         </div>
@@ -34,4 +38,5 @@ const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryP
   );
 };
 
+CountryPageGallery.defaultProps = defaultProps;
 export default CountryPageGallery;

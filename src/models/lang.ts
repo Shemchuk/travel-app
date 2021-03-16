@@ -1,3 +1,3 @@
-type Lang = 'RU' | 'EN' | 'BY';
+type Lang = 'ru' | 'en' | 'by';
 
 export default Lang;

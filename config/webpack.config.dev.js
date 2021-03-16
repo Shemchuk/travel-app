@@ -17,7 +17,10 @@ module.exports = merge(common, {
     proxy: {
       '/api': {
         target: 'http://localhost:3001',
-        pathRewrite: { '^/api': '' },
+        // pathRewrite: { '^/api': '' },
+      },
+      '/img/country': {
+        target: 'http://localhost:3001',
       },
     },
   },

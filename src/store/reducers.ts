@@ -1,13 +1,12 @@
 import IState from './state';
-import countriesList from '../tests/mocks/countriesList';
 import { ActionTypes, SET_CURRENT_COUNTRY, SET_CURRENT_LANG, LOAD_COUNTRIES } from './actions';
 
-const enCountries = countriesList.filter((country) => country.lang === 'RU');
+// const Countries = [];
 
 const initialState: IState = {
-  countryList: enCountries,
+  countryList: [],
   selectedCountry: undefined,
-  language: 'RU',
+  language: 'ru',
   weather: {
     temperature: 32,
   },

@@ -1,15 +1,22 @@
 import React from 'react';
-import '../css/about-page.scss';
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
-const AboutPage: React.FC = () => (
-  <>
-    <div className="about-page-wrapper">
-      <div className="about-page">
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <h2 className="about-page-title"> travel app application "travel the world"</h2>
-        <span className="about-page-content">
+import IState from '../store/state';
+
+const AboutPage: React.FC<any> = (props: any) => {
+  const { language } = props;
+
+  return (
+    <>
+    <div>About page [{language}]</div>
+      <div className="about-page-wrapper">
+        <div className="about-page">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          <h2 className="about-page-title"> travel app application "travel the world"</h2>
+          <span className="about-page-content">
           Данное приложение разработано в рамках курса &emsp;
-          <a href="https://rs.school/react/">rs.school rs.school React 2021 Q1</a>
+            <a href="https://rs.school/react/">rs.school rs.school React 2021 Q1</a>
           <br/>
           <br/>
           <a href="https://github.com/Shemchuk/travel-app">GitHub приложения</a>
@@ -33,9 +40,13 @@ const AboutPage: React.FC = () => (
           <br/>
           ©2021
         </span>
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
-export default AboutPage;
+const mapStateToProps = (state: IState) => ({
+  language: state.language,
+});
+export default withRouter(connect(mapStateToProps)(AboutPage));

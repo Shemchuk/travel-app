@@ -16,7 +16,7 @@ export function setCurrentCountry(country?: ICountry | undefined): ISetCurrentCo
 }
 
 // Actions
-export function loadCountries(countries: ICountry[]): ILoadCountries {
+export function loadCountriesAction(countries: ICountry[]): ILoadCountries {
   return {
     type: LOAD_COUNTRIES,
     payload: countries,
@@ -68,7 +68,7 @@ export const appActions = {
     setTimeout(() => {
       const countries = countriesList.filter((country) => country.lang === language.toLocaleUpperCase());
 
-      dispatch(loadCountries(countries));
+      dispatch(loadCountriesAction(countries));
       // console.log('=======> load countries:', language, countries);
     }, 100);
   },

@@ -1,24 +1,39 @@
 import React from 'react';
+import { useHistory, useLocation, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { appActions } from '../store/actions';
+import IState from '../store/state';
 // import Lang from '../models/lang';
 
-const LanguageSelect: React.FC = () => (
-  <>
-    <select className="lang" name="lang" id="lang">
-      {/* <option value={Lang.EN}> */}
-      <option value="EN">
-        {/* <Link to="en">en</Link> */}
-        EN
-      </option>
-      {/* <option value={Lang.RU}> */}
-      <option value="RU">
-        {/* <Link to="ru">ru</Link> */}
-        RU
-      </option>
-      <option value="BY">
-        BY
-      </option>
-    </select>
-  </>
-);
+const LanguageSelect: React.FC<any> = (props: any) => {
+  const { language } = props;
+  const history = useHistory();
+  const location = useLocation();
+  console.log('pathname', location.pathname);
 
-export default LanguageSelect;
+  // redirect to new translated page when select language from list
+  const redirect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLang = event.target.value;
+
+    console.log('Try change language to: ', newLang);
+    // replace two charachters in the start of string (en | ru | by)
+    const newPath = location.pathname.replace(/\/../, `/${newLang}`);
+    history.replace(newPath);
+  };
+
+  return (
+    <>
+      <select className="lang" value={language} name="lang" id="lang" onChange={redirect}>
+        <option value="en">EN</option>
+        <option value="ru">RU</option>
+        <option value="by">BY</option>
+      </select>
+    </>
+  );
+};
+
+const mapDispatchToProps = appActions;
+const mapStateToProps = (state: IState) => ({
+  language: state.language,
+});
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LanguageSelect));

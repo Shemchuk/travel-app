@@ -22,7 +22,7 @@ const Currency = (props: any) => {
         setUsdRates(rates.USD.toFixed(2));
         setEurRates(rates.EUR.toFixed(2));
       } catch (error) {
-        throw new Error(error);
+        console.warn(error);
       }
     }
     fetchData()

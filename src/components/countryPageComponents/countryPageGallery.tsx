@@ -1,42 +1,48 @@
-import '../../css/country-page-gallery.scss';
+
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
 import ReactImageGallery from "react-image-gallery";
-import "react-image-gallery/styles/scss/image-gallery.scss";
+import { connect } from 'react-redux';
+
+import '../../css/country-page-gallery.scss';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
+
 import IPlace from '../../models/place';
+import IState from '../../store/state';
 
 interface ICountryPageGalleryProps {
   places: IPlace[];
 }
 
 const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryPageGalleryProps) => {
+  
   const { places } = props;
 
   const [images, setImages] = useState(null);
   const shouldCancel = false;
 
   useEffect((): any => {
-    const call = async () => {
-      const res = await axios.get(
-        "https://google-photos-album-demo2.glitch.me/4eXXxxG3rYwQVf948"
-      );
-      if (!shouldCancel && res.data && res.data.length > 0) {
+    const call = () => {
+      if (!shouldCancel && places && places.length > 0) {
         setImages(
           // @ts-ignore
-          res.data.map(url => ({        
-            thumbnailLabel: 'Grand Canyon',
-            description: 'Grand Canyon',
-            original: `${url}=w1024`,
-            thumbnail: `${url}=w100`,
+          places.map(url => ({        
+            thumbnailLabel: url.name,
+            description: url.name,
+            // original: `${url.photo}`,
+            // thumbnail: `${url.photo}=w100`,
           }))
         );
       }
     };
     call();
-  }, [shouldCancel]);
+  }, [places, shouldCancel]);
   
   // @ts-ignore
   return images ? <ReactImageGallery items={images} /> : null;
 };
 
-export default CountryPageGallery;
+const mapStateToProps = (state: IState) => ({
+  country: state.selectedCountry,
+});
+
+export default connect(mapStateToProps)(CountryPageGallery);

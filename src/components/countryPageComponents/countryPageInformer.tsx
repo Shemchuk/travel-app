@@ -33,7 +33,7 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
         setDescWeater(data.weather[0].description)
         setTemp(data.main.temp.toFixed());
       } catch (error) {
-        throw new Error(error);
+        console.warn(error);      
       }
     }
     fetchData()
@@ -73,7 +73,6 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 
 const mapStateToProps = (state: IState) => ({
     country: state.selectedCountry,
-    weather: state.weather
 });
 
 export default connect(mapStateToProps)(CountryPageInformer);

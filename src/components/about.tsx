@@ -10,27 +10,27 @@ const AboutPage: React.FC = () => (
         <span className="about-page-content">
           Данное приложение разработано в рамках курса &emsp;
           <a href="https://rs.school/react/">rs.school rs.school React 2021 Q1</a>
-          <br />
-          <br />
+          <br/>
+          <br/>
           <a href="https://github.com/Shemchuk/travel-app">GitHub приложения</a>
-          <br />
-          <br />
-          <br />
+          <br/>
+          <br/>
+          <br/>
           Разработчики приложения / RSS. React 2021 Q1. Second task on React course by RS School. Team 54 /
-          <br />
-          <br />
+          <br/>
+          <br/>
           <a href="https://github.com/Shemchuk">Mikhail Shamchuk</a>
-          <br />
+          <br/>
           <a href="https://github.com/durden666">Vladislav Plaksa</a>
-          <br />
+          <br/>
           <a href="https://github.com/Andrew-6676">Andrew Shavnev</a>
-          <br />
+          <br/>
           <a href="https://github.com/seha1">Sergey Gryzunov</a>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           ©2021
         </span>
       </div>

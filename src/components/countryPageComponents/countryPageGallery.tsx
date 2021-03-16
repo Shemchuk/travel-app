@@ -20,12 +20,12 @@ const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryP
   const [images, setImages] = useState(null);
   const shouldCancel = false;
 
-  useEffect((): any => {
+  useEffect(() => {
     const call = () => {
       if (!shouldCancel && places && places.length > 0) {
         setImages(
           // @ts-ignore
-          places.map(url => ({        
+          places.map((url) => ({        
             thumbnailLabel: url.name,
             description: url.name,
             // original: `${url.photo}`,

@@ -1,6 +1,5 @@
-
-import React, { useEffect, useState } from 'react'
-import ReactImageGallery from "react-image-gallery";
+import React, { useEffect, useState } from 'react';
+import ReactImageGallery from 'react-image-gallery';
 import { connect } from 'react-redux';
 
 import '../../css/country-page-gallery.scss';
@@ -27,18 +26,18 @@ const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryP
       if (!shouldCancel && places && places.length > 0) {
         setImages(
           // @ts-ignore
-          places.map((url) => ({        
-            thumbnailLabel: url.name,
-            description: url.name,
-            // original: `${url.photo}`,
-            // thumbnail: `${url.photo}=w100`,
-          }))
+          places.map((place) => ({
+            thumbnailLabel: place.name,
+            description: place.description,
+            original: place.photo,
+            thumbnail: place.photo,
+          })),
         );
       }
     };
     call();
   }, [places, shouldCancel]);
-  
+
   // @ts-ignore
   return images ? <ReactImageGallery items={images} /> : null;
 };

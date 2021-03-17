@@ -16,7 +16,7 @@ interface ICountryPageInformerProps {
 const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
   const { country } = props;
   // @ts-ignore
-  const { capital } = country
+  const { capital } = country;
 
   const [weather, setWheater] = useState(null);
   const [descWeater, setDescWeater] = useState(null);
@@ -29,17 +29,17 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
         const res = await axios.get(url);
         const { data } = res;
 
-        setWheater(data.weather[0].id)
-        setDescWeater(data.weather[0].description)
+        setWheater(data.weather[0].id);
+        setDescWeater(data.weather[0].description);
         setTemp(data.main.temp.toFixed());
       } catch (error) {
-        console.warn(error);      
+        console.warn(error);
       }
-    }
-    fetchData()
-  }, [capital])
+    };
+    fetchData();
+  }, [capital]);
 
-  if (country) {    
+  if (country) {
     return (
       <>
         <div className="country_page_informer">
@@ -48,9 +48,7 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
             <span className="country_page_name_subtitle">{country.capital}</span>
           </div>
           <div className="country_page_weather">
-            <span className="weather">
-              {temp}°C
-            </span>
+            <span className="weather">{temp}°C</span>
             <div className="weater-info">
               <div className={`weather-icon owf owf-${weather}`} />
               <div className="weather-description">{descWeater}</div>
@@ -72,9 +70,6 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 };
 
 const mapStateToProps = (state: IState) => ({
-    country: state.selectedCountry,
+  country: state.selectedCountry,
 });
-
 export default connect(mapStateToProps)(CountryPageInformer);
-
-

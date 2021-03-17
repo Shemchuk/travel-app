@@ -3,7 +3,6 @@ import { useHistory, useLocation, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { appActions } from '../store/actions';
 import IState from '../store/state';
-// import Lang from '../models/lang';
 
 const LanguageSelect: React.FC<any> = (props: any) => {
   const { language } = props;

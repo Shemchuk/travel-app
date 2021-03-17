@@ -12,17 +12,17 @@ const AboutPage: React.FC<any> = (props: any) => {
     <div className="about-page-wrapper">
       <div className="about-page">
         {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <h2 className="about-page-title"> travel app application "travel the world"</h2>
+        <h2 className="about-page-title"> Travel app application "travel the world"</h2>
         <span className="about-page-content">
           Данное приложение разработано в рамках курса &emsp;
-          <a href="https://rs.school/react/">rs.school rs.school React 2021 Q1</a>
+          <a href="https://rs.school/react/">RSSchool React 2021 Q1</a>
           <br />
           <br />
           <a href="https://github.com/Shemchuk/travel-app">GitHub приложения</a>
           <br />
           <br />
           <br />
-          Разработчики приложения / RSS. React 2021 Q1. Second task on React course by RS School. Team 54 /
+          Разработчики приложения / RSS React 2021 Q1. Second task on React course by RS School. Team 54 /
           <br />
           <br />
           <a href="https://github.com/Shemchuk">Mikhail Shamchuk</a>

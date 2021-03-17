@@ -2,22 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { format } from 'date-fns'
 import { connect } from 'react-redux';
 import IState from '../../store/state';
+import ICountry from '../../models/country';
 
 type OptionsType = {
   timeZone: string
   hour12: boolean
 }
 
-const Clock = (props: any) => {
-  const { country } = props
-  const { timezone } = country;
+interface ICountryPageInformerProps {
+  country: ICountry | undefined
+}
+
+const Clock: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
+  const { country } = props;
   
   const [date, setDate] = useState(0);
 
   const today: any = new Date();
+
   const options: OptionsType = {
-    timeZone: timezone,
-    hour12: false 
+    timeZone: country!.timezone,
+    hour12: false,
   };
 
   const tick = () => {
@@ -43,7 +48,6 @@ const Clock = (props: any) => {
   </>
   )
 }
-
 
 const mapStateToProps = (state: IState) => ({
   country: state.selectedCountry,

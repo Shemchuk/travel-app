@@ -26,8 +26,8 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
-    "date-fns": "^2.19.0",
     "copy-webpack-plugin": "^8.0.0",
+    "date-fns": "^2.19.0",
     "lodash": "^4.17.21",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

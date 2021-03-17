@@ -7,7 +7,6 @@ module.exports = merge(common, {
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, '../dev'),
-    // publicPath: '/',
   },
   devServer: {
     contentBase: path.resolve(__dirname, '../dev'),
@@ -15,5 +14,14 @@ module.exports = merge(common, {
     compress: true,
     open: true,
     historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        // pathRewrite: { '^/api': '' },
+      },
+      '/img/country': {
+        target: 'http://localhost:3001',
+      },
+    },
   },
 });

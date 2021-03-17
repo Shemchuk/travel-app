@@ -35,21 +35,19 @@ const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
     loadCountry(Number(id), lang);
   }, [loadCountry, id, lang]);
 
-  if (country) {
-    return (
-      <>
-        <section className="country_page_wrapper">
-          <CountryPageInformer />
-          <CountryPageGallery places={country.places} />
-          <CountryPageDescription text={country.description} />
-          <CountryPageMap />
-          <CountryPageVideo />
-        </section>
-      </>
-    );
-  }
+  // if (country) {
+  return (
+    <section className="country_page_wrapper">
+      <CountryPageInformer />
+      <CountryPageGallery places={country?.places} />
+      <CountryPageDescription text={country?.description} />
+      <CountryPageMap />
+      <CountryPageVideo />
+    </section>
+  );
+  // }
 
-  return <div>Загрузка...</div>;
+  // return <div>Загрузка...</div>;
 };
 
 const mapDispatchToProps = appActions;

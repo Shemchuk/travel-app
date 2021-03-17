@@ -1,4 +1,5 @@
 import '../css/app.scss';
+import '../css/owfont-regular.scss'
 
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, withRouter, useParams, Redirect } from 'react-router-dom';

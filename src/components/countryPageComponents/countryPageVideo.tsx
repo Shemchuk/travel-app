@@ -1,15 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+// @ts-ignore 
+import { Player, ControlBar } from 'video-react';
+
 import '../../css/country-page-vedeo.scss';
+import 'video-react/dist/video-react.scss';
 
-const CountryPageVideo: React.FC = () => (
-  <>
-    <div className="country_page_video">
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-      <video src="https://www.youtube.com/watch?v=8yb9zpDia40" width="100%">
-        Ваш браузер не поддерживает это видео.
-      </video>
-    </div>
-  </>
-);
+import IState from '../../store/state';
 
-export default CountryPageVideo;
+const Video = () => ( 
+  <Player
+    playsInline
+    poster="https://video-react.js.org/assets/poster.png"
+    src='https://youtu.be/fXl4mIbZYNo'>
+    <ControlBar autoHide className="my-class" />
+  </Player>
+)
+const mapStateToProps = (state: IState) => ({
+  country: state.selectedCountry,
+});
+
+export default connect(mapStateToProps)(Video);

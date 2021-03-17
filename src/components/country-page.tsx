@@ -11,7 +11,7 @@ import { appActions } from '../store/actions';
 import CountryPageInformer from './countryPageComponents/countryPageInformer';
 import CountryPageGallery from './countryPageComponents/countryPageGallery';
 import CountryPageMap from './countryPageComponents/countryPageMap';
-import CountryPageVideo from './countryPageComponents/countryPageVideo';
+import Video from './countryPageComponents/countryPageVideo';
 import CountryPageDescription from './countryPageComponents/CountryPageDescription';
 import Lang from '../models/lang';
 
@@ -42,7 +42,7 @@ const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
       <CountryPageGallery places={country?.places} />
       <CountryPageDescription text={country?.description} />
       <CountryPageMap />
-      <CountryPageVideo />
+      <Video />
     </section>
   );
   // }

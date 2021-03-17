@@ -1,6 +1,13 @@
+
+import React, { useEffect, useState } from 'react'
+import ReactImageGallery from "react-image-gallery";
+import { connect } from 'react-redux';
+
 import '../../css/country-page-gallery.scss';
-import React from 'react';
+import 'react-image-gallery/styles/scss/image-gallery.scss';
+
 import IPlace from '../../models/place';
+import IState from '../../store/state';
 
 interface ICountryPageGalleryProps {
   places?: IPlace[];
@@ -12,31 +19,33 @@ const defaultProps: ICountryPageGalleryProps = {
 
 const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryPageGalleryProps) => {
   const { places } = props;
+  const [images, setImages] = useState(null);
+  const shouldCancel = false;
 
-  return (
-    <>
-      <div className="gallery">
-        <div className="left_button">
-          <div className="left_button_tap">
-            <div className="left_top_hr" />
-            <div className="left_bottom_hr" />
-          </div>
-        </div>
-        <div className="body_gallery">
-          {places?.map((p) => (
-            <div key={p.id}>{p.name}</div>
-          ))}
-        </div>
-        <div className="right_button">
-          <div className="right_button_tap">
-            <div className="right_top_hr" />
-            <div className="right_bottom_hr" />
-          </div>
-        </div>
-      </div>
-    </>
-  );
+  useEffect(() => {
+    const call = () => {
+      if (!shouldCancel && places && places.length > 0) {
+        setImages(
+          // @ts-ignore
+          places.map((url) => ({        
+            thumbnailLabel: url.name,
+            description: url.name,
+            // original: `${url.photo}`,
+            // thumbnail: `${url.photo}=w100`,
+          }))
+        );
+      }
+    };
+    call();
+  }, [places, shouldCancel]);
+  
+  // @ts-ignore
+  return images ? <ReactImageGallery items={images} /> : null;
 };
 
 CountryPageGallery.defaultProps = defaultProps;
-export default CountryPageGallery;
+const mapStateToProps = (state: IState) => ({
+  country: state.selectedCountry,
+});
+
+export default connect(mapStateToProps)(CountryPageGallery);

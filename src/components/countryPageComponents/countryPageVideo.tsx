@@ -1,7 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// @ts-ignore
-// import { Player, ControlBar } from 'video-react';
 
 import '../../css/country-page-vedeo.scss';
 import 'video-react/styles/scss/video-react.scss';
@@ -19,9 +17,6 @@ const Video: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerP
   return (
     <>
       <h3>{country?.videos[0].title}</h3>
-      {/* <Player playsInline src={country?.videos[0].url}>
-        <ControlBar autoHide className="my-class" />
-      </Player> */}
       <iframe
         title={country?.videos[0].title}
         height="400"

@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { format } from 'date-fns'
+import { connect } from 'react-redux';
+import IState from '../../store/state';
 
 type OptionsType = {
   timeZone: string
   hour12: boolean
 }
 
-const Clock = () => {
+const Clock = (props: any) => {
+  const { country } = props
+  const { timezone } = country;
+  
   const [date, setDate] = useState(0);
 
   const today: any = new Date();
   const options: OptionsType = {
-    timeZone: 'Europe/Minsk',
+    timeZone: timezone,
     hour12: false 
   };
 
@@ -40,4 +45,8 @@ const Clock = () => {
 }
 
 
-export default Clock
+const mapStateToProps = (state: IState) => ({
+  country: state.selectedCountry,
+});
+
+export default connect(mapStateToProps)(Clock);

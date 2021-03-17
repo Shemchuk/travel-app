@@ -1,9 +1,7 @@
 #app {
   width: 100%;
   height: auto;
-  background-image: url(../img/main_fon_blur.jpg);
-  background-size: 100% 100%;
-  background-attachment: fixed;
+  background: rgba(174, 174, 174, 0.5) url("../img/travel1.jpg") repeat fixed 0 0;
 
   flex: 1 0 auto;
 }

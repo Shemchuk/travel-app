@@ -11,6 +11,7 @@ import ICountry from '../models/country';
 
 const MainPage: React.FC<any> = (props: any) => {
   const { countryList, lang, filterCountry, loadCountries, setIsMainPage } = props;
+  
   const filteredCountryList = countryList.filter((item: ICountry) => {
     const country = item.name.toLowerCase();
     const capital = item.capital.toLowerCase();
@@ -26,6 +27,8 @@ const MainPage: React.FC<any> = (props: any) => {
   
   useEffect(() => {
     setIsMainPage(true);
+
+    return () => setIsMainPage(false);
   }, [setIsMainPage]);
 
   return (

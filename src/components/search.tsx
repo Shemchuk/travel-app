@@ -1,6 +1,6 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import '../css/search.scss';
 import React from 'react';
-import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { appActions } from '../store/actions';
 import IState from '../store/state';
@@ -15,7 +15,7 @@ const Search: React.FC = (props: any) => {
   return (
     <div className="header_search" id="search">
       <img src={search_png} alt="search" />
-      <input type="search" value={filterCountry} onChange={handleChange} />
+      <input type="search" autoFocus value={filterCountry} onChange={handleChange} />
       <button type="button" className="search_reset_button" onClick={handleResetFilter}>
         <span className="material-icons">
           clear
@@ -27,7 +27,6 @@ const Search: React.FC = (props: any) => {
 
 const mapDispatchToProps = appActions;
 const mapStateToProps = (state: IState) => ({
-  setFilterCountry: state.filterCountry,
   filterCountry: state.filterCountry,
 });
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

@@ -19,14 +19,12 @@ interface ICountryPageProps extends RouteComponentProps<any> {
   country: ICountry | undefined;
   lang: Lang;
   loadCountry: (id: number, lang: Lang) => void;
-  setIsMainPage: (isMainPage: boolean) => void;
 }
 
 const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
   const {
     country,
     loadCountry,
-    setIsMainPage,
     lang,
     match: {
       params: { id },
@@ -36,10 +34,6 @@ const CountryPage: React.FC<ICountryPageProps> = (props: ICountryPageProps) => {
   useEffect(() => {
     loadCountry(Number(id), lang);
   }, [loadCountry, id, lang]);
-
-  useEffect(() => {
-    setIsMainPage(false);
-  }, [setIsMainPage]);
 
   if (country) {
     return (

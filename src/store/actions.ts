@@ -5,6 +5,8 @@ import TLang from '../models/lang';
 export const SET_CURRENT_COUNTRY = 'SET_CURRENT_COUNTRY';
 export const SET_CURRENT_LANG = 'SET_CURRENT_LANG';
 export const LOAD_COUNTRIES = 'LOAD_COUNTRIES';
+export const SET_CURRENT_FILTER = 'SET_CURRENT_FILTER';
+export const SET_IS_MAIN_PAGE = 'SET_IS_MAIN_PAGE';
 
 export function setCurrentCountry(country?: ICountry | undefined): ISetCurrentCountry {
   return {
@@ -28,6 +30,20 @@ export function setCurrentLang(lang: TLang = 'ru'): ISetCurrentLang {
   };
 }
 
+export function setFilterCountryAction(filter: string = 'ru'): ISetFilterCountry {
+  return {
+    type: SET_CURRENT_FILTER,
+    payload: filter,
+  };
+}
+
+export function setIsMainPageAction(isMainPage: boolean = true): ISetIsMainPage {
+  return {
+    type: SET_IS_MAIN_PAGE,
+    payload: isMainPage,
+  };
+}
+
 interface ISetCurrentCountry {
   type: typeof SET_CURRENT_COUNTRY;
   payload: ICountry | undefined;
@@ -43,7 +59,16 @@ interface ISetCurrentLang {
   payload: TLang;
 }
 
-export type ActionTypes = ISetCurrentCountry | ISetCurrentLang | ILoadCountries;
+interface ISetFilterCountry {
+  type: typeof SET_CURRENT_FILTER;
+  payload: string;
+}
+interface ISetIsMainPage {
+  type: typeof SET_IS_MAIN_PAGE;
+  payload: boolean;
+}
+
+export type ActionTypes = ISetCurrentCountry | ISetCurrentLang | ILoadCountries | ISetFilterCountry | ISetIsMainPage;
 
 export const appActions = {
   // Action (thunk) - load country by ID and Lang
@@ -71,4 +96,6 @@ export const appActions = {
   },
   // Action - set language
   setLang: setCurrentLang,
+  setFilter: setFilterCountryAction,
+  setIsMainPage: setIsMainPageAction,
 };

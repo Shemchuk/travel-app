@@ -7,4 +7,6 @@ export default interface IState {
   countryList: ICountry[];
   selectedCountry?: ICountry;
   weather: IWeather;
+  filterCountry: string;
+  isMainPage: boolean;
 }

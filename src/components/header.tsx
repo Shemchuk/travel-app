@@ -10,6 +10,7 @@ import IState from '../store/state';
 
 const Header: React.FC<any> = (props: any) => {
   let { lang } = props;
+  const { isMainPage } = props;
   lang = lang.toLowerCase();
 
   console.log(lang);
@@ -38,7 +39,7 @@ const Header: React.FC<any> = (props: any) => {
               </ul>
             </nav>
 
-            <Search />
+            {isMainPage ? <Search /> : null}
           </div>
         </div>
     </header>
@@ -47,6 +48,7 @@ const Header: React.FC<any> = (props: any) => {
 
 const mapStateToProps = (state: IState) => ({
   lang: state.language,
+  isMainPage: state.isMainPage,
 });
 
 export default connect(mapStateToProps)(Header);

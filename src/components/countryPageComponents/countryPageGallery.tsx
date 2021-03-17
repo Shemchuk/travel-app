@@ -10,13 +10,15 @@ import IPlace from '../../models/place';
 import IState from '../../store/state';
 
 interface ICountryPageGalleryProps {
-  places: IPlace[];
+  places?: IPlace[];
 }
 
-const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryPageGalleryProps) => {
-  
-  const { places } = props;
+const defaultProps: ICountryPageGalleryProps = {
+  places: [],
+};
 
+const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryPageGalleryProps) => {
+  const { places } = props;
   const [images, setImages] = useState(null);
   const shouldCancel = false;
 
@@ -41,6 +43,7 @@ const CountryPageGallery: React.FC<ICountryPageGalleryProps> = (props: ICountryP
   return images ? <ReactImageGallery items={images} /> : null;
 };
 
+CountryPageGallery.defaultProps = defaultProps;
 const mapStateToProps = (state: IState) => ({
   country: state.selectedCountry,
 });

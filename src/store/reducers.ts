@@ -1,13 +1,12 @@
 import IState from './state';
-import countriesList from '../tests/mocks/countriesList';
-import { ActionTypes, SET_CURRENT_COUNTRY } from './actions';
+import { ActionTypes, SET_CURRENT_COUNTRY, SET_CURRENT_LANG, LOAD_COUNTRIES } from './actions';
 
-const enCountries = countriesList.filter((country) => country.lang === 'RU');
+// const Countries = [];
 
 const initialState: IState = {
-  countryList: enCountries,
+  countryList: [],
   selectedCountry: undefined,
-  language: 'RU',
+  language: 'ru',
   weather: {
     temperature: 32,
   },
@@ -17,6 +16,12 @@ export default function travelReducer(state = initialState, action: ActionTypes)
   switch (action.type) {
     case SET_CURRENT_COUNTRY:
       return { ...state, selectedCountry: action.payload };
+
+    case LOAD_COUNTRIES:
+      return { ...state, countryList: action.payload };
+
+    case SET_CURRENT_LANG:
+      return { ...state, language: action.payload };
     // case SELECT_COUNTRY:
     //   return state;
     // case LOAD_COUNTRY_LIST:

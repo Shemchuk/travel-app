@@ -1,96 +1,79 @@
-//@mixin max-width($width) {
-//  @media screen and (max-width: $width) {
-//    @content;
-//  }
-//}
-
-//.country-card-wrapper {
-//  flex: 1;
-//  flex-basis: 25%;
-//  display: flex;
-//  justify-content: center;
-//}
-
 a {
   text-decoration: none;
-}
 
-.country-card {
-  flex: 1;
-  flex-basis: 25%;
+  .country-card {
+    flex: 1;
+    flex-basis: 25%;
 
-  width: 300px;
-  height: 400px;
-  background-image: url('../img/france.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: #333333;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  overflow: hidden;
-
-  .title_cart{
-    margin-left: 30px;
-    margin-top: 30px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 48px;
-    color: #ffffff;
-  }
-
-  .sub-title_cart{
-    margin-left: 30px;
-    margin-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 36px;
-    color: #ffffff;
-  }
-
-  .more{
-    display: none;
-    width: 332px;
-    height: 409px;
-    font-size: 18px;
-    color: #333333;
-    text-align: center;
-    line-height: 409px;
-    justify-content: center;
-    align-self: center;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 300px;
+    height: 400px;
+    background-color: #333333;
+    cursor: pointer;
+    overflow: hidden;
     position: relative;
-    top: 200px;
 
-  }
-
-  &:hover{
-    .title_cart,
-    .sub-title_cart{
-      display: none;
+    .picture {
+      position: absolute;
+      height: 100%;
+      left: -50%;
     }
 
-    .more{
-      display: block;
-      top: 0;
+    .text {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      height: 100%;
 
+      .title_cart {
+        text-shadow: 2px 2px #000000b3;
+        margin-left: 30px;
+        margin-top: 30px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+        color: #ffffff;
+      }
+
+      .sub-title_cart {
+        text-shadow: 2px 2px #000000b3;
+        margin-left: 30px;
+        margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        color: #ffffff;
+      }
+
+      .more {
+        transition-duration: 0.3s;
+        width: 332px;
+        height: 0;
+        font-size: 18px;
+        color: transparent;
+        text-align: center;
+        line-height: 409px;
+        justify-content: center;
+        align-self: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        position: relative;
+        top: 50%;
+
+      }
     }
+    &:hover {
+
+        .title_cart,
+        .sub-title_cart {
+
+          display: none;
+        }
+
+        .more {
+          width: 332px;
+          height: 409px;
+          top: 0;
+          z-index: 100;
+          color: #333333;
+
+        }
+      }
   }
 }
-
-//@include max-width(992px) {
-//  .country-card-wrapper {
-//    flex-basis: 33%;
-//  }
-//}
-//
-//@include max-width(640px) {
-//  .country-card-wrapper {
-//    flex-basis: 50%;
-//  }
-//}
-//
-//@include max-width(320px) {
-//  .country-card-wrapper {
-//    flex-basis: 80%;
-//  }
-//}

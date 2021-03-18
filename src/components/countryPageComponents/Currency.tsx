@@ -8,9 +8,9 @@ const Currency = (props: any) => {
   const { country } = props;
   const { currency } = country;
 
-  const [rubRates, setRubRates] = useState(0);
-  const [usdRates, setUsdRates] = useState(0);
-  const [eurRates, setEurRates] = useState(0);
+  const [rubRates, setRubRates] = useState('0');
+  const [usdRates, setUsdRates] = useState('0');
+  const [eurRates, setEurRates] = useState('1.00');
 
   useEffect(() => {
     const fetchData = async () => {

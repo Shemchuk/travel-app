@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+
 import IState from '../../store/state';
 
 const Currency = (props: any) => {
-  const { country } = props
+  const { country } = props;
   const { currency } = country;
 
-  const [rubRates, setRubRates] = useState(0)
-  const [usdRates, setUsdRates] = useState(0)
-  const [eurRates, setEurRates] = useState('1.00')
+  const [rubRates, setRubRates] = useState('0');
+  const [usdRates, setUsdRates] = useState('0');
+  const [eurRates, setEurRates] = useState('1.00');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,9 +25,9 @@ const Currency = (props: any) => {
       } catch (error) {
         console.warn(error);
       }
-    }
-    fetchData()
-  }, [currency])
+    };
+    fetchData();
+  }, [currency]);
 
   return (
     <>
@@ -34,8 +35,8 @@ const Currency = (props: any) => {
       <div className="currency">$ {usdRates}</div>
       <div className="currency">€ {eurRates}</div>
     </>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state: IState) => ({
   country: state.selectedCountry,

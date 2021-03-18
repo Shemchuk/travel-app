@@ -6,6 +6,7 @@ export default interface ICountry {
   id: number;
   name: string;
   capital: string;
+  timezone: string;
   capitalCoordinates: { lat: number; lon: number };
   photo: string;
   currency: string;
@@ -14,5 +15,4 @@ export default interface ICountry {
   videos: IVideo[];
   lang: Lang;
   ISOCode: string;
-  timezone: any
 }

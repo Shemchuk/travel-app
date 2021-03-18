@@ -1,37 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { format } from 'date-fns'
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import { format } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
+import * as Locale from 'date-fns/locale';
+
 import IState from '../../store/state';
-import ICountry from '../../models/country';
 
-type OptionsType = {
-  timeZone: string
-  hour12: boolean
+interface IClockProps {
+  lang: string;
+  timezone: string | undefined;
 }
 
-interface ICountryPageInformerProps {
-  country: ICountry | undefined
-}
-
-const Clock: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
-  const { country } = props;
-  
-  const [date, setDate] = useState(0);
-
-  const today: any = new Date();
-
-  const options: OptionsType = {
-    timeZone: country!.timezone,
-    hour12: false,
+const Clock: React.FC<IClockProps> = (props: IClockProps) => {
+  const [date, setDate] = useState(new Date());
+  const { lang, timezone } = props;
+  const locale: { [key: string]: Locale } = {
+    ru: Locale.ru,
+    be: Locale.be,
+    en: Locale.enUS,
   };
 
   const tick = () => {
-    setDate(today.toLocaleString('en-US', options));
-  }
+    const zonedDate = utcToZonedTime(new Date(), timezone || 'Europe/Minsk');
+    setDate(zonedDate);
+  };
 
   useEffect(() => {
-    const timerID = setInterval( () => tick(), 1000 );
-    
+    const timerID = setInterval(() => tick(), 1000);
+
     return () => {
       clearInterval(timerID);
     };
@@ -39,18 +35,14 @@ const Clock: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerP
 
   return (
     <>
-    <div className="page_clock">
-      {format(new Date(date), 'kk:mm:ss')}
-    </div>
-    <div className="page_calendar">
-      {format(new Date(date), 'EEEE, MMMM d')}
-    </div>
-  </>
-  )
-}
+      <div className="page_clock">{format(date, 'kk:mm:ss')}</div>
+      <div className="page_calendar">{format(date, 'EEEE, MMMM d', { locale: locale[lang] })}</div>
+    </>
+  );
+};
 
 const mapStateToProps = (state: IState) => ({
-  country: state.selectedCountry,
+  lang: state.language,
+  timezone: state.selectedCountry?.timezone,
 });
-
 export default connect(mapStateToProps)(Clock);

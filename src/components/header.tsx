@@ -8,40 +8,59 @@ import LanguageSelect from './language-select';
 import Search from './search';
 import IState from '../store/state';
 
-const Header: React.FC<any> = (props: any) => {
-  let { lang } = props;
-  const { isMainPage } = props;
-  lang = lang.toLowerCase();
+const l11n: { [key: string]: any } = {
+  ru: {
+    title: 'Путешествуйте по миру',
+    home: 'Главная',
+    about: 'О приложении',
+    login: 'Войти',
+  },
+  en: {
+    title: 'Travel the world',
+    home: 'Home',
+    about: 'About',
+    login: 'Login',
+  },
+  be: {
+    title: 'Вандруйе па свеце',
+    home: 'Галоуная',
+    about: 'А прылаженii',
+    login: 'Увайcцi',
+  },
+};
 
-  console.log(lang);
+const Header: React.FC<any> = (props: any) => {
+  const { lang } = props;
+  const { isMainPage } = props;
+
   return (
     <header className="header">
-        <div className="header_wrapper">
-          <div className="header_logo">
-            <Link to={`/${lang}`}>travel the world</Link>
-          </div>
-
-          <div className="header_menu">
-            <nav className="header_nav">
-              <ul>
-                <li>
-                  <Link to={`/${lang}`}>Home</Link>
-                </li>
-                <li>
-                  <Link to={`/${lang}/about`}>about</Link>
-                </li>
-                <li>
-                  <Link to={`/${lang}/login`}>login</Link>
-                </li>
-                <li>
-                  <LanguageSelect />
-                </li>
-              </ul>
-            </nav>
-
-            {isMainPage ? <Search /> : null}
-          </div>
+      <div className="header_wrapper">
+        <div className="header_logo">
+          <Link to={`/${lang}`}>{l11n[lang].title}</Link>
         </div>
+
+        <div className="header_menu">
+          <nav className="header_nav">
+            <ul>
+              <li>
+                <Link to={`/${lang}`}>{l11n[lang].home}</Link>
+              </li>
+              <li>
+                <Link to={`/${lang}/about`}>{l11n[lang].about}</Link>
+              </li>
+              {/* <li>
+               <Link to={`/${lang}/login`}>{l11n[lang].login}</Link>
+              </li> */}
+              <li>
+                <LanguageSelect />
+              </li>
+            </ul>
+          </nav>
+
+          {isMainPage ? <Search /> : null}
+        </div>
+      </div>
     </header>
   );
 };

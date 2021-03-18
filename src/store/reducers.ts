@@ -9,7 +9,7 @@ const initialState: IState = {
     temperature: 32,
   },
   filterCountry: '',
-  isMainPage: true,
+  isMainPage: false,
 };
 
 export default function travelReducer(state = initialState, action: ActionTypes): IState {

@@ -3,7 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400&display=swap');
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -42,7 +43,7 @@ body {
     .footer_git_link {
       display: flex;
       justify-content: center;
-      align-items: baseline;
+      align-items: center;
 
       a {
         color: #8d8d8d;
@@ -59,6 +60,9 @@ body {
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
+        @media (max-width: 600px) {
+          display: none;
+        }
       }
     }
   }

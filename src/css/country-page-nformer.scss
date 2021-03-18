@@ -2,31 +2,19 @@
 .country_page_informer {
   margin: 0;
   width: 100%;
-  height: 120px;
   background-color: #333333;
   display: flex;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
   align-items: center;
 
-  .country_page_weather {
-    width: 25%;
-    height: 83px;
-  }
-
   .country_page_title {
-    width: 30%;
-    height: 83px;
+    padding: 10px 10px;
   }
 
   .country_page_clock {
-    width: 45%;
-    height: 83px;
-  }
-
-  .country_page_weather,
-  .country_page_title {
-    border-right: 2px solid #ffffff;
-
+    display: flex;
+    flex-flow: row wrap;
   }
 
   .country_page_title {
@@ -35,7 +23,6 @@
 
     .country_page_name_title {
       display: block;
-      margin: -10px 0 0 10px;
       font-family: 'Roboto', sans-serif;
       font-size: 32px;
       color: #ffffff;
@@ -43,7 +30,6 @@
 
     .country_page_name_subtitle {
       display: block;
-      margin: 5px 0 0 10px;
       font-family: 'Roboto', sans-serif;
       font-size: 24px;
       color: #ffffff;
@@ -53,13 +39,13 @@
   .country_page_weather {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    min-width: 200px;
+    padding: 10px 10px;
 
     .weather {
       display: block;
-      height: 83px;
-      margin: 16px 0 0 10px;
       font-family: 'Roboto', sans-serif;
       font-size: 58px;
       color: #ffffff;
@@ -74,7 +60,7 @@
       color: #fff;
     }
 
-    .weather-icon {    
+    .weather-icon {
       display: flex;
       justify-content: center;
       font-size: 48px;
@@ -87,19 +73,19 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
 
     .clock {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-right: 15px;
 
       .page_clock {
         margin-left: 15px;
         font-family: 'Roboto', sans-serif;
         font-size: 42px;
         color: #ffffff;
-
-
       }
 
       .page_calendar {
@@ -114,18 +100,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin: 0 15px;
+      min-width: 150px;
 
       .currency {
-        margin-right: 15px;
         font-family: 'Roboto', sans-serif;
         font-size: 27px;
         color: #ffffff;
-
       }
-
     }
-
-
   }
 }
-

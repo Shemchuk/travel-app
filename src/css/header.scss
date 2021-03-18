@@ -1,34 +1,32 @@
 .header {
   margin: 0 auto;
   width: 100%;
-  height: 50px;
   background-color: #cdd5da;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 
   .header_wrapper {
     margin: 0 auto;
     width: 98%;
-    height: 50px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     align-content: center;
 
     .header_logo {
       width: 175px;
-      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
 
       a {
         text-decoration: none;
         color: #333333;
         display: block;
         width: 175px;
-        height: 50px;
         font-family: 'Bebas Neue', sans-serif;
         font-size: 30px;
         text-align: center;
-        line-height: 50px;
         transition: all 0.5s;
 
         &:hover {
@@ -38,30 +36,32 @@
     }
 
     .header_menu {
-      width: auto;
-      height: 50px;
       display: flex;
-      justify-content: space-between;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
       align-content: center;
 
       .header_nav {
-        width: 235px;
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
         ul {
           list-style-type: none;
-          height: 50px;
           display: flex;
+          padding: 0;
+          margin: 0;
+          align-items: center;
 
           li {
-            width: 50px;
-            height: 50px;
+            margin: 0 5px;
+            align-content: center;
 
             a {
+              align-content: center;
+
               transition: all 0.5s;
               text-decoration: none;
               display: block;
-              width: 50px;
-              height: 50px;
               font-family: 'Bebas Neue', sans-serif;
               font-size: 18px;
               color: #333333;
@@ -73,9 +73,7 @@
             }
 
             .lang {
-              margin-top: -3px;
               display: block;
-              width: 50px;
               font-family: 'Bebas Neue', sans-serif;
               font-size: 18px;
               color: #333333;
@@ -86,9 +84,19 @@
               option {
                 background-color: transparent;
               }
+              &:hover {
+                cursor: pointer;
+              }
             }
           }
         }
+      }
+
+      .header_search {
+        display: flex;
+        justify-content: center;
+
+        margin: 10px 0;
       }
     }
   }

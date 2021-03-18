@@ -15,7 +15,7 @@ const Video: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerP
   const { country } = props;
 
   return (
-    <>
+    <div className="country_page_video">
       <h3>{country?.videos[0].title}</h3>
       <iframe
         title={country?.videos[0].title}
@@ -25,8 +25,8 @@ const Video: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerP
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />
-      <div>{country?.videos[0].description}</div>
-    </>
+      <div className="video-description text_configure">{country?.videos[0].description}</div>
+    </div>
   );
 };
 

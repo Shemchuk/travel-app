@@ -1,5 +1,35 @@
-.country_page_video{
+.country_page_video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   background-color: #333333;
-}
 
+  h3 {
+    text-align: center;
+    padding: 15px auto;
+    display: block;
+    width: 95%;
+    height: inherit;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+  }
+
+  iframe {
+    width: 95%;
+  }
+
+  .video-description {
+    margin: 15px auto;
+    display: block;
+    width: 95%;
+    height: inherit;
+    min-height: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #ffffff;
+  }
+}

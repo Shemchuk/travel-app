@@ -6,7 +6,7 @@ const CountryPageDescription: React.FC<any> = (props: any) => {
   return (
     <>
       <div className="country-page-description">
-        <span>{text}</span>
+        <span className="text_configure">{text}</span>
       </div>
     </>
   );

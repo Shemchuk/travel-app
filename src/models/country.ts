@@ -14,4 +14,5 @@ export default interface ICountry {
   videos: IVideo[];
   lang: Lang;
   ISOCode: string;
+  timezone: any
 }

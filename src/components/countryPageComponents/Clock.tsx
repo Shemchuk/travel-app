@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import { format } from 'date-fns'
+import { connect } from 'react-redux';
+import IState from '../../store/state';
+import ICountry from '../../models/country';
 
 type OptionsType = {
   timeZone: string
   hour12: boolean
 }
 
-const Clock = () => {
+interface ICountryPageInformerProps {
+  country: ICountry | undefined
+}
+
+const Clock: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
+  const { country } = props;
+  
   const [date, setDate] = useState(0);
 
   const today: any = new Date();
+
   const options: OptionsType = {
-    timeZone: 'Europe/Minsk',
-    hour12: false 
+    timeZone: country!.timezone,
+    hour12: false,
   };
 
   const tick = () => {
@@ -39,5 +49,8 @@ const Clock = () => {
   )
 }
 
+const mapStateToProps = (state: IState) => ({
+  country: state.selectedCountry,
+});
 
-export default Clock
+export default connect(mapStateToProps)(Clock);

@@ -1,0 +1,20 @@
+.country-page-description {
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+  background-color: #333333;
+  text-align: justify;
+
+  span {
+    margin: 15px auto;
+    display: block;
+    width: 95%;
+    height: inherit;
+    min-height: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #ffffff;
+  }
+}

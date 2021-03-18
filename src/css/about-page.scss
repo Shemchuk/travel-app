@@ -1,0 +1,52 @@
+.about-page-wrapper{
+  box-sizing: border-box;
+  margin: 15px auto;
+  width: 80%;
+  height: auto;
+  display: flex;
+  align-self: center;
+  .about-page{
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #333333;
+
+    h2{
+      margin: 30px auto;
+      text-transform: uppercase;
+      font-family: 'Bebas Neue',sans-serif;
+      font-size: 30px;
+      text-align: center;
+      line-height: 50px;
+      color: #333333;
+    }
+
+    .about-page-content{
+      margin: 30px auto;
+      display: block;
+      width: 50%;
+      height: auto;
+      font-size: 18px;
+
+      a{
+        text-decoration: none;
+        color: #333333;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+        line-height: 24px;
+
+        &:hover{
+          color: rgba(51, 51, 51, 0.75);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+

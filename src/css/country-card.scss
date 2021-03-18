@@ -1,0 +1,79 @@
+a {
+  text-decoration: none;
+
+  .country-card {
+    flex: 1;
+    flex-basis: 25%;
+
+    width: 300px;
+    height: 400px;
+    background-color: #333333;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+
+    .picture {
+      position: absolute;
+      height: 100%;
+      left: -50%;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      height: 100%;
+
+      .title_cart {
+        text-shadow: 2px 2px #000000b3;
+        margin-left: 30px;
+        margin-top: 30px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 32px;
+        color: #ffffff;
+      }
+
+      .sub-title_cart {
+        text-shadow: 2px 2px #000000b3;
+        margin-left: 30px;
+        margin-top: 10px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 24px;
+        color: #ffffff;
+      }
+
+      .more {
+        transition-duration: 0.3s;
+        width: 332px;
+        height: 0;
+        font-size: 18px;
+        color: transparent;
+        text-align: center;
+        line-height: 409px;
+        justify-content: center;
+        align-self: center;
+        background-color: rgba(255, 255, 255, 0.5);
+        position: relative;
+        top: 50%;
+
+      }
+    }
+    &:hover {
+
+        .title_cart,
+        .sub-title_cart {
+
+          display: none;
+        }
+
+        .more {
+          width: 332px;
+          height: 409px;
+          top: 0;
+          z-index: 100;
+          color: #333333;
+
+        }
+      }
+  }
+}

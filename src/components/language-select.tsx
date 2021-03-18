@@ -25,7 +25,7 @@ const LanguageSelect: React.FC<any> = (props: any) => {
       <select className="lang" value={language} name="lang" id="lang" onChange={redirect}>
         <option value="en">EN</option>
         <option value="ru">RU</option>
-        <option value="by">BY</option>
+        <option value="be">BE</option>
       </select>
     </>
   );

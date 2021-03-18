@@ -8,13 +8,15 @@ import IState from '../../store/state';
 import ICountry from '../../models/country';
 import Clock from './Clock';
 import Currency from './Currency';
+import Lang from '../../models/lang';
 
 interface ICountryPageInformerProps {
   country: ICountry | undefined;
+  lang: Lang;
 }
 
 const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountryPageInformerProps) => {
-  const { country } = props;
+  const { country, lang } = props;
   // @ts-ignore
   const { capital } = country;
 
@@ -24,7 +26,7 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${capital}&lang=en&appid=a4c1e23269d7d59e28b2b893ae243de9&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${capital}&lang=${lang}&appid=a4c1e23269d7d59e28b2b893ae243de9&units=metric`;
       try {
         const res = await axios.get(url);
         const { data } = res;
@@ -37,7 +39,7 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
       }
     };
     fetchData();
-  }, [capital]);
+  }, [lang, capital]);
 
   if (country) {
     return (
@@ -71,5 +73,6 @@ const CountryPageInformer: React.FC<ICountryPageInformerProps> = (props: ICountr
 
 const mapStateToProps = (state: IState) => ({
   country: state.selectedCountry,
+  lang: state.language,
 });
 export default connect(mapStateToProps)(CountryPageInformer);

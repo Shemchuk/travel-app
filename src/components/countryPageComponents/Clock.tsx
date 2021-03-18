@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import { format } from 'date-fns'
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import { format } from 'date-fns';
+import { utcToZonedTime } from 'date-fns-tz';
+import * as Locale from 'date-fns/locale';
 
-type OptionsType = {
-  timeZone: string
-  hour12: boolean
+import IState from '../../store/state';
+
+interface IClockProps {
+  lang: string;
+  timezone: string | undefined;
 }
 
-const Clock = () => {
-  const [date, setDate] = useState(0);
-
-  const today: any = new Date();
-  const options: OptionsType = {
-    timeZone: 'Europe/Minsk',
-    hour12: false 
+const Clock: React.FC<IClockProps> = (props: IClockProps) => {
+  const [date, setDate] = useState(new Date());
+  const { lang, timezone } = props;
+  const locale: { [key: string]: Locale } = {
+    ru: Locale.ru,
+    be: Locale.be,
+    en: Locale.enUS,
   };
 
   const tick = () => {
-    setDate(today.toLocaleString('en-US', options));
-  }
+    const zonedDate = utcToZonedTime(new Date(), timezone || 'Europe/Minsk');
+    setDate(zonedDate);
+  };
 
   useEffect(() => {
-    const timerID = setInterval( () => tick(), 1000 );
-    
+    const timerID = setInterval(() => tick(), 1000);
+
     return () => {
       clearInterval(timerID);
     };
@@ -29,15 +35,14 @@ const Clock = () => {
 
   return (
     <>
-    <div className="page_clock">
-      {format(new Date(date), 'kk:mm:ss')}
-    </div>
-    <div className="page_calendar">
-      {format(new Date(date), 'EEEE, MMMM d')}
-    </div>
-  </>
-  )
-}
+      <div className="page_clock">{format(date, 'kk:mm:ss')}</div>
+      <div className="page_calendar">{format(date, 'EEEE, MMMM d', { locale: locale[lang] })}</div>
+    </>
+  );
+};
 
-
-export default Clock
+const mapStateToProps = (state: IState) => ({
+  lang: state.language,
+  timezone: state.selectedCountry?.timezone,
+});
+export default connect(mapStateToProps)(Clock);

@@ -15,11 +15,9 @@ const Search: React.FC = (props: any) => {
   return (
     <div className="header_search" id="search">
       <img src={search_png} alt="search" />
-      <input type="search" autoFocus value={filterCountry} onChange={handleChange} />
+      <input type="search" autoFocus value={filterCountry} onChange={handleChange} placeholder="Поиск по стране" />
       <button type="button" className="search_reset_button" onClick={handleResetFilter}>
-        <span className="material-icons">
-          clear
-        </span>
+        <span className="material-icons">clear</span>
       </button>
     </div>
   );

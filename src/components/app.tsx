@@ -17,10 +17,6 @@ const AppComponent: React.FC<any> = (props: any) => {
   const { lang }: any = useParams();
 
   useEffect(() => {
-    // console.log('=======> [App] useEffect: state.language=', language);
-    // console.log('====> [App] props.match.params:', props.match.params);
-    // console.log('====> [App] lang from params:', lang);
-    // console.log('====> [App] lang from state:', language);
     if (language !== lang) {
       setLang(lang);
     }

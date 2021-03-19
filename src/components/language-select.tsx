@@ -8,13 +8,11 @@ const LanguageSelect: React.FC<any> = (props: any) => {
   const { language } = props;
   const history = useHistory();
   const location = useLocation();
-  console.log('pathname', location.pathname);
 
   // redirect to new translated page when select language from list
   const redirect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newLang = event.target.value;
 
-    console.log('Try change language to: ', newLang);
     // replace two charachters in the start of string (en | ru | by)
     const newPath = location.pathname.replace(/\/../, `/${newLang}`);
     history.replace(newPath);

@@ -24,8 +24,8 @@ const l11n: { [key: string]: any } = {
   be: {
     title: 'Вандруйе па свеце',
     home: 'Галоуная',
-    about: 'А прылаженii',
-    login: 'Увайcцi',
+    about: 'Аб прыкладанні',
+    login: 'Увайcці',
   },
 };
 
